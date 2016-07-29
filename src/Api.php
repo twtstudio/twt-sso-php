@@ -18,7 +18,7 @@ class Api {
 
   private function _getQuery($source = null) {
     if (!$source) $source = '';
-    $query = 'app_id='.$this->appid.'&time='.time().'&source='.rtrim(strtr(base64_encode(json_encode($source)), '+/', '-_'), '=');
+    $query = 'app_id=' . $this->appid . '&time=' . time() . '&source=' . rtrim(strtr(base64_encode(json_encode($source)), '+/', '-_'), '=');
     return $query . '&sign=' . hash_hmac('sha1', $query, $this->appkey);
   }
 
