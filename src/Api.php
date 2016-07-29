@@ -51,6 +51,6 @@ class Api {
   }
 
   function logout($token) {
-    return $this->_request($this->_getServer() . 'sso/logout/' . $token . '?' . $this->_getQuery());
+    return $this->callApi('sso/logout/' . $token);
   }
 }
