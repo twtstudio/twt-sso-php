@@ -1,0 +1,10 @@
+{
+    "name": "twtstudio/sso",
+    "authors": [
+        {
+            "name": "Innpaul Zhang",
+            "email": "zyp108421@gmail.com"
+        }
+    ],
+    "require": {}
+}
