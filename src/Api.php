@@ -1,6 +1,6 @@
 <?php
 
-namespace \twtstudio\sso;
+namespace \twt\sso;
 
 class Api {
   var $server = 'login.twtstudio.com';
