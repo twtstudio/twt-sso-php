@@ -4,18 +4,16 @@ namespace \twtstudio\sso;
 
 class Api {
   var $server = 'login.twtstudio.com';
-  var $serverIp = '202.113.13.167';
 
-  var $appid, $appkey, $https, $useIp;
-  function __construct($appid, $appkey, $https = true, $useIp = false) {
+  var $appid, $appkey, $https;
+  function __construct($appid, $appkey, $https = true) {
     $this->appid = $appid;
     $this->appkey = $appkey;
     $this->https = $https;
-    $this->useIp = $useIp;
   }
 
-  private function _getServer($forceDomain = false) {
-    return ($this->https ? 'https' : 'http') . '://' . ($this->useIp && !$forceDomain ? $this->serverIp : $this->server) . '/';
+  private function _getServer() {
+    return ($this->https ? 'https' : 'http') . '://' . $this->server . '/';
   }
 
   private function _getQuery($source = null) {
@@ -29,9 +27,7 @@ class Api {
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_HEADER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    if ($this->useIp) {
-      curl_setopt($ch, CURLOPT_HTTPHEADER, array('Host: ' . $this->server));
-    }
+
     if ($postData) {
       curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
     }
@@ -47,7 +43,7 @@ class Api {
   }
 
   function getLoginUrl($redirUrl) {
-    return $this->_getServer(true) . 'sso/login?' . $this->_getQuery($redirUrl);
+    return $this->_getServer() . 'sso/login?' . $this->_getQuery($redirUrl);
   }
 
   function getUserInfo($token) {
