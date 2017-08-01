@@ -1,6 +1,6 @@
 <?php
 
-namespace twt\sso;
+namespace TwT\SSO;
 
 class UserType {
     const USER_PERSON = 1;
