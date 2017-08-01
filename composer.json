@@ -6,5 +6,7 @@
             "email": "zyp108421@gmail.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": { "TwT\\SSO\\": "src/" }
+    }
 }
