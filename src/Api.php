@@ -46,11 +46,18 @@ class Api {
     return $this->_getServer() . 'sso/login?' . $this->_getQuery($redirUrl);
   }
 
+  /**
+   * @deprecated Use fetchUserInfo instead.
+   */
   function getUserInfo($token) {
-    return $this->callApi('sso/getUserInfo/' . $token);
+    return $this->fetchUserInfo($token);
+  }
+
+  function fetchUserInfo($token) {
+    return $this->callApi('sso/getUserInfo', $token);
   }
 
   function logout($token) {
-    return $this->callApi('sso/logout/' . $token);
+    return $this->callApi('sso/logout', $token);
   }
 }
