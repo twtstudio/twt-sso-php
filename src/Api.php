@@ -46,6 +46,14 @@ class Api {
     return $this->_getServer() . 'sso/login?' . $this->_getQuery($redirUrl);
   }
 
+  function getVerifiedPhoneQuery($key) {
+    return $this->_getQuery($key);
+  }
+
+  function getVerifiedPhoneSign($phone, $key, $time) {
+    return hash_hmac('sha256', $phone . '@' . $key . '@' . $time, $this->appkey);
+  }
+
   /**
    * @deprecated Use fetchUserInfo instead.
    */
