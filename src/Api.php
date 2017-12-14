@@ -46,12 +46,15 @@ class Api {
     return $this->_getServer() . 'sso/login?' . $this->_getQuery($redirUrl);
   }
 
-  function getVerifiedPhoneQuery($key) {
-    return $this->_getQuery($key);
+  function getVerifiedPhoneQuery($user, $token) {
+    return $this->_getQuery([
+      'user' => $user,
+      'token' => $token
+    ]);
   }
 
-  function getVerifiedPhoneSign($phone, $key, $time) {
-    return hash_hmac('sha256', $phone . '@' . $key . '@' . $time, $this->appkey);
+  function getVerifiedPhoneSign($phone, $token, $time) {
+    return hash_hmac('sha256', $phone . '@' . $token . '@' . $time, $this->appkey);
   }
 
   /**
