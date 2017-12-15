@@ -54,7 +54,7 @@ class Api {
   }
 
   function getVerifiedPhoneSign($phone, $token, $time) {
-    return hash_hmac('sha256', $phone . '@' . $token . '@' . $time, $this->appkey);
+    return base64_encode(hash_hmac('sha256', $phone . '@' . $token . '@' . $time, $this->appkey, true));
   }
 
   /**
