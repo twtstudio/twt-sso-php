@@ -3,7 +3,7 @@
 namespace TwT\SSO;
 
 class Api {
-  var $server = 'login.twtstudio.com';
+  var $server = 'login.twt.edu.cn';
 
   var $appid, $appkey, $https;
   function __construct($appid, $appkey, $https = true) {
