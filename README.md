@@ -16,7 +16,7 @@ composer require twt/sso
 $sso = new TwT\SSO\Api($app_id, $app_key);
 ```
 
-Apply for an app ID and app key from your group leader, if you havn't got one already.
+Apply for an app ID and app key from your group leader, if you haven't got one already.
 
 ### Get Login URL
 
@@ -40,6 +40,6 @@ $user_info = $sso->fetchUserInfo($auth_token);
 
 User info contains user name, real name, student number, etc. Sensitive information like phone number and ID card number is not included.
 
-### See Also
+## See Also
 
 [twt-sso-node](https://github.com/twtstudio/twt-sso-node)
